@@ -33,7 +33,7 @@ def load_user(user_id):
 # Home route
 @app.route("/")
 def home():
-    return render_template("home.html")
+    return redirect(url_for("login"))
 
 # Register route
 @app.route('/register', methods=["GET", "POST"])
@@ -83,7 +83,7 @@ def dashboard():
 @login_required
 def logout():
     logout_user()
-    return redirect(url_for("home"))
+    return redirect(url_for("register"))
 
 if __name__ == "__main__":
     app.run(debug=True)
